@@ -1,4 +1,4 @@
-import { WithoutQuestion } from "../Answer/WithoutQuestion"
+import { WithoutQuestion } from "../Answer"
 import { Question } from "../Question/Question"
 
 export const QuestionDetail = ()=>{
@@ -6,7 +6,8 @@ export const QuestionDetail = ()=>{
             
     {/* Question */}
 
-    <Question text="Laborum laborum quis irure sunt ipsum consectetur nulla culpa pariatur et.?" username="Aman" postedAt="2hr ago" answers="60+"/>
+    <Question text="Laborum laborum quis irure sunt ipsum consectetur nulla culpa pariatur et.?" username="Aman" postedAt="2hr ago" answers="60+" questionID="questionID"/>
+    <div className="h-1 w-auto shadow-md mx-[5rem]"></div>
     {/* Answers for the question */}
         
     <WithoutQuestion votes={50} postedAt="2hr ago" comments="60+" username="Aman" answer="Proident consectetur magna mollit mollit anim reprehenderit labore culpa enim fugiat ex aliquip ipsum eiusmod. Commodo proident et occaecat tempor non ullamco consequat. Do cupidatat culpa nostrud id nulla. Pariatur adipisicing qui sunt duis ex ut pariatur ex cupidatat. Sit nostrud minim reprehenderit adipisicing culpa laboris anim fugiat exercitation aute sit Lorem sint."/>

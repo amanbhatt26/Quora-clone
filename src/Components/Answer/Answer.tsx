@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 export type AnswerProps = {
     votes:number
     question:string 
@@ -5,9 +7,10 @@ export type AnswerProps = {
     username:string 
     postedAt:string 
     comments:string 
+    questionID:string 
 }
 
-export const Answer = ({votes, question, answer, username, postedAt, comments}:AnswerProps)=>{
+export const Answer = ({votes, question, answer, username, postedAt, comments, questionID}:AnswerProps)=>{
     return <div className="h-auto bg-white shadow-lg m-[2rem] rounded-[1rem] flex flex-row">
         {/* upvote component */}
         <div className="w-[10%]  rounded-[1rem] flex flex-col items-center justify-top p-3">
@@ -29,7 +32,9 @@ export const Answer = ({votes, question, answer, username, postedAt, comments}:A
             {/* Text elements */}
             <div className="border-b-2 pb-8">
                 {/* Question */}
-                <p className="text-[1rem] mb-2">{question}</p>        
+                <Link to={`/questions/${questionID}`}>
+                    <p className="text-[1rem] mb-2">{question}</p>    
+                </Link>    
                 {/* Answer */}
                 <p className="text-[0.8rem] text-slate-600">{answer}</p>
             </div>

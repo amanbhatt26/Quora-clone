@@ -10,13 +10,14 @@ export const Home = ()=>{
             {/* Answer Components */}
                 
 
-            <Answer votes={50} question={"Officia deserunt proident in est culpa ullamco magna officia enim non nostrud."} answer="Enim eu id enim esse dolore anim Lorem aliquip commodo dolor ea magna occaecat esse. Qui aliquip in mollit sit consectetur consequat. Ut adipisicing consectetur est dolore sint proident do est qui officia." username="Aman" postedAt="2hr ago" comments="60+"/>
+            <Answer votes={50} question={"Officia deserunt proident in est culpa ullamco magna officia enim non nostrud."} answer="Enim eu id enim esse dolore anim Lorem aliquip commodo dolor ea magna occaecat esse. Qui aliquip in mollit sit consectetur consequat. Ut adipisicing consectetur est dolore sint proident do est qui officia." username="Aman" postedAt="2hr ago" comments="60+" questionID="questionID"/>
 
-            <Answer votes={50} question={"Officia deserunt proident in est culpa ullamco magna officia enim non nostrud."} answer="Enim eu id enim esse dolore anim Lorem aliquip commodo dolor ea magna occaecat esse. Qui aliquip in mollit sit consectetur consequat. Ut adipisicing consectetur est dolore sint proident do est qui officia." username="Aman" postedAt="2hr ago" comments="60+"/>
+            <Answer votes={50} question={"Officia deserunt proident in est culpa ullamco magna officia enim non nostrud."} answer="Enim eu id enim esse dolore anim Lorem aliquip commodo dolor ea magna occaecat esse. Qui aliquip in mollit sit consectetur consequat. Ut adipisicing consectetur est dolore sint proident do est qui officia." username="Aman" postedAt="2hr ago" comments="60+" questionID="questionID"/>
+            <Answer votes={50} question={"Officia deserunt proident in est culpa ullamco magna officia enim non nostrud."} answer="Enim eu id enim esse dolore anim Lorem aliquip commodo dolor ea magna occaecat esse. Qui aliquip in mollit sit consectetur consequat. Ut adipisicing consectetur est dolore sint proident do est qui officia." username="Aman" postedAt="2hr ago" comments="60+" questionID="questionID"/>
 
-            <Answer votes={50} question={"Officia deserunt proident in est culpa ullamco magna officia enim non nostrud."} answer="Enim eu id enim esse dolore anim Lorem aliquip commodo dolor ea magna occaecat esse. Qui aliquip in mollit sit consectetur consequat. Ut adipisicing consectetur est dolore sint proident do est qui officia." username="Aman" postedAt="2hr ago" comments="60+"/>
+            <Answer votes={50} question={"Officia deserunt proident in est culpa ullamco magna officia enim non nostrud."} answer="Enim eu id enim esse dolore anim Lorem aliquip commodo dolor ea magna occaecat esse. Qui aliquip in mollit sit consectetur consequat. Ut adipisicing consectetur est dolore sint proident do est qui officia." username="Aman" postedAt="2hr ago" comments="60+" questionID="questionID"/>
 
-            <Answer votes={50} question={"Officia deserunt proident in est culpa ullamco magna officia enim non nostrud."} answer="Enim eu id enim esse dolore anim Lorem aliquip commodo dolor ea magna occaecat esse. Qui aliquip in mollit sit consectetur consequat. Ut adipisicing consectetur est dolore sint proident do est qui officia." username="Aman" postedAt="2hr ago" comments="60+"/>
+
 
 
         </div>

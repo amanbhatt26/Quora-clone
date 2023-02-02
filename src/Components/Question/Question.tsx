@@ -1,19 +1,21 @@
+import { Link } from "react-router-dom"
 
 export type QuestionProps = {
     text:string 
     username:string 
     postedAt:string
     answers:string  
+    questionID:string 
 }
 
-export const Question =({text, username, postedAt, answers}:QuestionProps)=>{
+export const Question =({text, username, postedAt, answers, questionID}:QuestionProps)=>{
     return <div className="h-auto bg-white shadow-lg m-[2rem] rounded-[0.7rem] flex flex-col w-auto">
     
     
         {/* Text elements */}
         <div className="border-b-2 pb-8 p-4">
             {/* Question */}
-            <p className="text-[1rem] mb-2">{text}</p>        
+           <Link to={`/questions/${questionID}`}> <p className="text-[1rem] mb-2">{text}</p> </Link>    
             {/* Answer */}
            
         </div>

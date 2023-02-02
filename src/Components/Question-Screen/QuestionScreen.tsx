@@ -6,7 +6,14 @@ export const QuestionScreen = ()=>{
 
     {/* Question Components */}
         
-    <Question text="Laborum laborum quis irure sunt ipsum consectetur nulla culpa pariatur et.?" username="Aman" postedAt="2hr ago" answers="60+"/>
+    <Question text="Laborum laborum quis irure sunt ipsum consectetur nulla culpa pariatur et.?" username="Aman" postedAt="2hr ago" answers="60+" questionID="questionID"/>
+    <Question text="Laborum laborum quis irure sunt ipsum consectetur nulla culpa pariatur et.?" username="Aman" postedAt="2hr ago" answers="60+" questionID="questionID"/>
+    <Question text="Laborum laborum quis irure sunt ipsum consectetur nulla culpa pariatur et.?" username="Aman" postedAt="2hr ago" answers="60+" questionID="questionID"/>
+    <Question text="Laborum laborum quis irure sunt ipsum consectetur nulla culpa pariatur et.?" username="Aman" postedAt="2hr ago" answers="60+" questionID="questionID"/>
+    <Question text="Laborum laborum quis irure sunt ipsum consectetur nulla culpa pariatur et.?" username="Aman" postedAt="2hr ago" answers="60+" questionID="questionID"/>
+    <Question text="Laborum laborum quis irure sunt ipsum consectetur nulla culpa pariatur et.?" username="Aman" postedAt="2hr ago" answers="60+" questionID="questionID"/>
+    <Question text="Laborum laborum quis irure sunt ipsum consectetur nulla culpa pariatur et.?" username="Aman" postedAt="2hr ago" answers="60+" questionID="questionID"/>
+    <Question text="Laborum laborum quis irure sunt ipsum consectetur nulla culpa pariatur et.?" username="Aman" postedAt="2hr ago" answers="60+" questionID="questionID"/>
 
 
 
