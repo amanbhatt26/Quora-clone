@@ -10,17 +10,17 @@ export const Navbar = ()=>{
             </div>
         </Link>
         <div className="flex-1 flex flex-row justify-center mx-5 ">
-        <input className="bg-[#EEF1FF] w-[30vw] h-[4vh] rounded pl-2  text-slate-800" placeholder={"Q search"}/>
+        <input className="bg-[#EEF1FF] w-[30vw] h-[4vh]  pl-2  text-slate-800" placeholder={"Q search"}/>
         
         </div>
         <div className=" flex flex-row justify-end">
             <Link to="/">
-                <div className="mx-5 rounded-[0] p-1  hover:border-b-[0.5rem] border-b-[0.5rem]"> 
+                <div className="mx-5  p-1  hover:border-b-[0.5rem] border-b-[0.5rem]"> 
                     <HomeIconSolid className="w-8 h-8"/>
                 </div>
             </Link>
             <Link to="/questions">
-                <div className="mr-5 rounded-[0] p-1  hover:border-b-[0.5rem]">
+                <div className="mr-5  p-1  hover:border-b-[0.5rem]">
                     <QuestionIconOutline className="w-8 h-8"/>
                 </div>
             </Link>

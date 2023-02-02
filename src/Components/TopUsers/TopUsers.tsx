@@ -1,5 +1,5 @@
 export const TopUsers = ()=>{
-    return <div className="bg-white mt-10 mx-10 p-2 flex flex-col justify-start text-slate-600 text-[.9rem] rounded-[0.8rem]">
+    return <div className="bg-white mt-10 mx-10 p-2 flex flex-col justify-start text-slate-600 text-[.9rem] ">
         <div className="flex flex-row justify-center items-center mx-5 p-1 border-b-2">Top Users</div>
        <div className="flex flex-row justify-start items-center my-[1rem] mx-5 border-l-[0.2rem] border-b-2 p-2">
             <img src="https://lumiere-a.akamaihd.net/v1/images/spiderman-characterthumbnail-spiderman_3a64e546.jpeg?region=0%2C0%2C300%2C300" className="h-[2rem] w-[2rem] rounded-[50%] mx-2"/>

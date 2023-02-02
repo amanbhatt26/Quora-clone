@@ -2,7 +2,7 @@ import { Answer } from "../Answer"
 
 export const User = ()=>{
     return <div className="flex-1 h-full flex flex-col items-center text-slate-600">
-        <div className="bg-white h-min w-[50vw] mt-10 rounded-[0.4rem] flex flex-col justify-start items-center">
+        <div className="bg-white h-min w-[50vw] mt-10 flex flex-col justify-start items-center">
             <div className="flex flex-row border-b-2 w-full p-2">
             <div className="p-2 m-2">
                 <img src="https://lumiere-a.akamaihd.net/v1/images/spiderman-characterthumbnail-spiderman_3a64e546.jpeg?region=0%2C0%2C300%2C300" className="h-[10rem] w-[10rem] rounded-[50%]"/>

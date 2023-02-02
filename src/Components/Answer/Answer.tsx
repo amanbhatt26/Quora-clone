@@ -11,9 +11,9 @@ export type AnswerProps = {
 }
 
 export const Answer = ({votes, question, answer, username, postedAt, comments, questionID}:AnswerProps)=>{
-    return <div className="h-auto bg-white shadow-lg m-[2rem] rounded-[1rem] flex flex-row">
+    return <div className="h-auto bg-white shadow-lg m-[2rem]  flex flex-row">
         {/* upvote component */}
-        <div className="w-[10%]  rounded-[1rem] flex flex-col items-center justify-top p-3">
+        <div className="w-[10%]   flex flex-col items-center justify-top p-3">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
         <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" fill="#D6E4E5" strokeWidth="0"/>
         </svg>
@@ -28,7 +28,7 @@ export const Answer = ({votes, question, answer, username, postedAt, comments, q
 
         </div>
         {/* description component */}
-        <div className="w-[90%] rounded-[1rem] p-[1.5rem] flex flex-col justify-top items-center">
+        <div className="w-[90%] p-[1.5rem] flex flex-col justify-top items-center">
             {/* Text elements */}
             <div className="border-b-2 pb-8">
                 {/* Question */}
