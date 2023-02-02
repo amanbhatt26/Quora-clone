@@ -10,6 +10,7 @@ export const User = ()=>{
             <div className="flex flex-col items-start mt-10">
                 <p className="text-[2rem] text-slate-600">Aman Bhatt</p>
                 <p>Web Developer</p>
+                <p className="text-[0.8rem]">Joined 2 days ago</p>
             </div>
             </div>
             <div className="flex flex-row justify-around w-full">

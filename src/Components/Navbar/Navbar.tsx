@@ -5,7 +5,7 @@ export const Navbar = ()=>{
     return <div className="fixed w-[100vw] h-[5rem] shadow-md 
     flex flex-row items-center p-[1rem] bg-[#FFFFFF] justify-start">
         <Link to="/">
-            <div className="mx-10 text-slate-800">
+            <div className="mx-10 text-[#666666] text-[1.5rem] font-bold">
                 LOGO
             </div>
         </Link>
