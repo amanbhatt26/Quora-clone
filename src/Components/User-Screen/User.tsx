@@ -1,6 +1,27 @@
-import { Answer } from "../Answer";
+import { useDispatch, useSelector } from "react-redux";
+import { Answer, AnswerProps } from "../Answer";
+import { Question, QuestionProps } from "../Question";
+import { changeTab } from "../../Features/User-Screen/UserSlice";
+
+export type UserProps = {
+  username: string;
+  profession: string;
+  joinedAt: string;
+  answers: AnswerProps[];
+  questions: QuestionProps[];
+  tab: "questions" | "answers";
+};
 
 export const User = () => {
+  const { username, profession, joinedAt, answers, questions, tab }: UserProps =
+    useSelector((state: any) => state.userScreen);
+
+  const dispatch = useDispatch();
+
+  const tabStyle: string = "m-2 p-2 hover:border-b-[0.5rem] cursor-pointer";
+  const selectedTabStyle: string =
+    "m-2 p-2 hover:border-b-[0.5rem] border-b-[0.5rem] cursor-pointer";
+
   return (
     <div className="flex-1 h-full flex flex-col items-center text-slate-600">
       <div className="bg-white h-min w-[50vw] mt-10 flex flex-col justify-start items-center">
@@ -12,68 +33,75 @@ export const User = () => {
             />
           </div>
           <div className="flex flex-col items-start mt-10">
-            <p className="text-[2rem] text-slate-600">Aman Bhatt</p>
-            <p>Web Developer</p>
+            <p className="text-[2rem] text-slate-600">{username}</p>
+            <p>{profession}</p>
 
-            <p className="text-[0.8rem]">Joined 2 days ago</p>
+            <p className="text-[0.8rem]">Joined {joinedAt}</p>
           </div>
         </div>
         <div className="flex flex-row justify-around w-full">
-          <div className="m-2 p-2 hover:border-b-[0.5rem]">Questions</div>
-          <div className="m-2 p-2 hover:border-b-[0.5rem] border-b-[0.5rem]">
+          <div
+            onClick={() => {
+              dispatch(changeTab("questions"));
+            }}
+            className={tab === "questions" ? selectedTabStyle : tabStyle}
+          >
+            Questions
+          </div>
+          <div
+            onClick={() => {
+              dispatch(changeTab("answers"));
+            }}
+            className={tab === "answers" ? selectedTabStyle : tabStyle}
+          >
             Answers
           </div>
         </div>
       </div>
 
-      <div className="scrollable-list h-full w-[50vw]">
-        {/* Answer Components */}
-
-        <Answer
-          votes={50}
-          question={
-            "Officia deserunt proident in est culpa ullamco magna officia enim non nostrud."
-          }
-          answer="Enim eu id enim esse dolore anim Lorem aliquip commodo dolor ea magna occaecat esse. Qui aliquip in mollit sit consectetur consequat. Ut adipisicing consectetur est dolore sint proident do est qui officia."
-          username="Aman"
-          postedAt="2hr ago"
-          comments="60+"
-          questionID="questionID"
-        />
-        <Answer
-          votes={50}
-          question={
-            "Officia deserunt proident in est culpa ullamco magna officia enim non nostrud."
-          }
-          answer="Enim eu id enim esse dolore anim Lorem aliquip commodo dolor ea magna occaecat esse. Qui aliquip in mollit sit consectetur consequat. Ut adipisicing consectetur est dolore sint proident do est qui officia."
-          username="Aman"
-          postedAt="2hr ago"
-          comments="60+"
-          questionID="questionID"
-        />
-        <Answer
-          votes={50}
-          question={
-            "Officia deserunt proident in est culpa ullamco magna officia enim non nostrud."
-          }
-          answer="Enim eu id enim esse dolore anim Lorem aliquip commodo dolor ea magna occaecat esse. Qui aliquip in mollit sit consectetur consequat. Ut adipisicing consectetur est dolore sint proident do est qui officia."
-          username="Aman"
-          postedAt="2hr ago"
-          comments="60+"
-          questionID="questionID"
-        />
-        <Answer
-          votes={50}
-          question={
-            "Officia deserunt proident in est culpa ullamco magna officia enim non nostrud."
-          }
-          answer="Enim eu id enim esse dolore anim Lorem aliquip commodo dolor ea magna occaecat esse. Qui aliquip in mollit sit consectetur consequat. Ut adipisicing consectetur est dolore sint proident do est qui officia."
-          username="Aman"
-          postedAt="2hr ago"
-          comments="60+"
-          questionID="questionID"
-        />
-      </div>
+      {tab === "answers" ? (
+        <div className="scrollable-list h-full w-[50vw]">
+          {answers.map(
+            ({
+              votes,
+              question,
+              answer,
+              username,
+              postedAt,
+              comments,
+              questionID,
+            }) => {
+              return (
+                <Answer
+                  votes={votes}
+                  question={question}
+                  answer={answer}
+                  username={username}
+                  postedAt={postedAt}
+                  comments={comments}
+                  questionID={questionID}
+                />
+              );
+            }
+          )}
+        </div>
+      ) : (
+        <div className="scrollable-list h-full w-[50vw]">
+          {questions.map(
+            ({ text, username, postedAt, answers, questionID }) => {
+              return (
+                <Question
+                  text={text}
+                  username={username}
+                  postedAt={postedAt}
+                  answers={answers}
+                  questionID={questionID}
+                />
+              );
+            }
+          )}
+        </div>
+      )}
     </div>
   );
 };

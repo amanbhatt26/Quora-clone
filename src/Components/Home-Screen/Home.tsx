@@ -1,59 +1,39 @@
-import { Answer } from "../Answer";
+import { useSelector } from "react-redux";
+import { Answer, AnswerProps } from "../Answer";
 import { TopUsers } from "../TopUsers";
 
 export const Home = () => {
+  const { answers } = useSelector((state: any) => state.homeScreen);
+
   return (
     <>
       {/* scrollable list component */}
       <div className="scrollable-list h-full w-[100vw] md:w-[70vw] ml-10">
         {/* Answer Components */}
-
-        <Answer
-          votes={50}
-          question={
-            "Officia deserunt proident in est culpa ullamco magna officia enim non nostrud."
+        {answers.map(
+          ({
+            votes,
+            question,
+            answer,
+            username,
+            postedAt,
+            comments,
+            questionID,
+          }: AnswerProps) => {
+            return (
+              <Answer
+                key={questionID}
+                votes={votes}
+                question={question}
+                answer={answer}
+                username={username}
+                postedAt={postedAt}
+                comments={comments}
+                questionID={questionID}
+              />
+            );
           }
-          answer="Enim eu id enim esse dolore anim Lorem aliquip commodo dolor ea magna occaecat esse. Qui aliquip in mollit sit consectetur consequat. Ut adipisicing consectetur est dolore sint proident do est qui officia."
-          username="Aman"
-          postedAt="2hr ago"
-          comments="60+"
-          questionID="questionID"
-        />
-
-        <Answer
-          votes={50}
-          question={
-            "Officia deserunt proident in est culpa ullamco magna officia enim non nostrud."
-          }
-          answer="Enim eu id enim esse dolore anim Lorem aliquip commodo dolor ea magna occaecat esse. Qui aliquip in mollit sit consectetur consequat. Ut adipisicing consectetur est dolore sint proident do est qui officia."
-          username="Aman"
-          postedAt="2hr ago"
-          comments="60+"
-          questionID="questionID"
-        />
-        <Answer
-          votes={50}
-          question={
-            "Officia deserunt proident in est culpa ullamco magna officia enim non nostrud."
-          }
-          answer="Enim eu id enim esse dolore anim Lorem aliquip commodo dolor ea magna occaecat esse. Qui aliquip in mollit sit consectetur consequat. Ut adipisicing consectetur est dolore sint proident do est qui officia."
-          username="Aman"
-          postedAt="2hr ago"
-          comments="60+"
-          questionID="questionID"
-        />
-
-        <Answer
-          votes={50}
-          question={
-            "Officia deserunt proident in est culpa ullamco magna officia enim non nostrud."
-          }
-          answer="Enim eu id enim esse dolore anim Lorem aliquip commodo dolor ea magna occaecat esse. Qui aliquip in mollit sit consectetur consequat. Ut adipisicing consectetur est dolore sint proident do est qui officia."
-          username="Aman"
-          postedAt="2hr ago"
-          comments="60+"
-          questionID="questionID"
-        />
+        )}
       </div>
       {/* Top users component */}
       <div className=" flex-1 flex flex-col h-full">

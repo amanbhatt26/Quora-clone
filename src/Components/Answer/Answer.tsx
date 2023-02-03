@@ -22,7 +22,7 @@ export const Answer = ({
   return (
     <div className="h-auto bg-white shadow-lg m-[2rem]  flex flex-row">
       {/* upvote component */}
-      <div className="w-[10%]   flex flex-col items-center justify-top p-3">
+      <div className="w-[10%] flex flex-col items-center justify-top p-3">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
