@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { WithoutQuestionProps } from "../../Components/Answer";
+import { AnswerProps } from "../../Components/Answer";
 import { QuestionProps } from "../../Components/Question";
 
 export type QuestionDetailProps = {
   question: QuestionProps;
-  answers: WithoutQuestionProps[];
+  answers: AnswerProps[];
 };
 
 const initialState: QuestionDetailProps = {
@@ -17,12 +17,22 @@ const initialState: QuestionDetailProps = {
   },
   answers: [
     {
-      votes: 50,
-      postedAt: "2hr ago",
-      comments: "60+",
-      username: "Aman",
+      votes: 31,
       answer:
-        "Proident consectetur magna mollit mollit anim reprehenderit labore culpa enim fugiat ex aliquip ipsum eiusmod. Commodo proident et occaecat tempor non ullamco consequat. Do cupidatat culpa nostrud id nulla. Pariatur adipisicing qui sunt duis ex ut pariatur ex cupidatat. Sit nostrud minim reprehenderit adipisicing culpa laboris anim fugiat exercitation aute sit Lorem sint.",
+        "Et commodo et non magna aliqua sit culpa aliqua. Tempor fugiat ad magna cupidatat anim excepteur sit eiusmod. Amet cillum cillum ex esse adipisicing exercitation proident minim aliqua exercitation. Proident voluptate ea excepteur magna.",
+      username: "aman",
+      postedAt: "2hr ago",
+      comments: [{ userID: "suparv", text: "good answer" }],
+    },
+
+    {
+      votes: 31,
+      answer:
+        "Et commodo et non magna aliqua sit culpa aliqua. Tempor fugiat ad magna cupidatat anim excepteur sit eiusmod. Amet cillum cillum ex esse adipisicing exercitation proident minim aliqua exercitation. Proident voluptate ea excepteur magna.",
+      username: "aman",
+      postedAt: "2hr ago",
+      comments: [{ userID: "suparv", text: "good answer" }],
+      questionID: "randomID",
     },
   ],
 };

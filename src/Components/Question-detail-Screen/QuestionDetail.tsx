@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { changeScreen } from "../../Features/Navigation/NavSlice";
-import { WithoutQuestion, WithoutQuestionProps } from "../Answer";
+import { Answer, AnswerProps } from "../Answer";
 import { Question } from "../Question/Question";
 
 export const QuestionDetail = () => {
@@ -36,14 +36,18 @@ export const QuestionDetail = () => {
             comments,
             username,
             answer,
-          }: WithoutQuestionProps) => {
+            questionID,
+            question,
+          }: AnswerProps) => {
             return (
-              <WithoutQuestion
+              <Answer
                 votes={votes}
                 postedAt={postedAt}
                 comments={comments}
                 username={username}
                 answer={answer}
+                questionID={questionID}
+                question={question}
               />
             );
           }

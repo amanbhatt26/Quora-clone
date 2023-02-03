@@ -16,7 +16,7 @@ const initialState: HomeScreenStateProps = {
         "Et commodo et non magna aliqua sit culpa aliqua. Tempor fugiat ad magna cupidatat anim excepteur sit eiusmod. Amet cillum cillum ex esse adipisicing exercitation proident minim aliqua exercitation. Proident voluptate ea excepteur magna.",
       username: "aman",
       postedAt: "2hr ago",
-      comments: "60+",
+      comments: [{ userID: "suparv", text: "good answer" }],
       questionID: "randomID",
     },
 
@@ -28,18 +28,7 @@ const initialState: HomeScreenStateProps = {
         "Et commodo et non magna aliqua sit culpa aliqua. Tempor fugiat ad magna cupidatat anim excepteur sit eiusmod. Amet cillum cillum ex esse adipisicing exercitation proident minim aliqua exercitation. Proident voluptate ea excepteur magna.",
       username: "aman",
       postedAt: "2hr ago",
-      comments: "60+",
-      questionID: "randomID",
-    },
-    {
-      votes: 31,
-      question:
-        "Amet cupidatat duis consectetur labore consequat consequat ipsum ullamco sint proident.",
-      answer:
-        "Et commodo et non magna aliqua sit culpa aliqua. Tempor fugiat ad magna cupidatat anim excepteur sit eiusmod. Amet cillum cillum ex esse adipisicing exercitation proident minim aliqua exercitation. Proident voluptate ea excepteur magna.",
-      username: "aman",
-      postedAt: "2hr ago",
-      comments: "60+",
+      comments: [{ userID: "suparv", text: "good answer" }],
       questionID: "randomID",
     },
   ],

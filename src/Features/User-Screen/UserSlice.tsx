@@ -14,7 +14,7 @@ const initialState: UserProps = {
         "Esse est dolor in sit aute cillum aliquip dolore dolor est duis elit eiusmod consequat. Culpa duis nostrud deserunt dolor ipsum est officia incididunt. Adipisicing nisi consectetur sint veniam.",
       username: "aman",
       postedAt: "2days ago",
-      comments: "60+",
+      comments: [{ userID: "suparv", text: "good answer" }],
       questionID: "randomID",
     },
   ],
