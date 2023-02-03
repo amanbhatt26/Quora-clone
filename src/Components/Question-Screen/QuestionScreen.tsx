@@ -1,8 +1,15 @@
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { changeScreen } from "../../Features/Navigation/NavSlice";
 import { Question, QuestionProps } from "../Question/Question";
 
 export const QuestionScreen = () => {
   const { questions } = useSelector((state: any) => state.questionScreen);
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(changeScreen("questions"));
+  }, []);
 
   return (
     <>

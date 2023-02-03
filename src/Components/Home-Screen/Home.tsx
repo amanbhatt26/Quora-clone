@@ -1,10 +1,17 @@
-import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { changeScreen } from "../../Features/Navigation/NavSlice";
 import { Answer, AnswerProps } from "../Answer";
 import { TopUsers } from "../TopUsers";
 
 export const Home = () => {
   const { answers } = useSelector((state: any) => state.homeScreen);
 
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(changeScreen("home"));
+  }, []);
   return (
     <>
       {/* scrollable list component */}

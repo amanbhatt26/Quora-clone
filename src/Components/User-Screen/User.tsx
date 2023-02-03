@@ -2,6 +2,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Answer, AnswerProps } from "../Answer";
 import { Question, QuestionProps } from "../Question";
 import { changeTab } from "../../Features/User-Screen/UserSlice";
+import { useEffect } from "react";
+import { changeScreen } from "../../Features/Navigation/NavSlice";
 
 export type UserProps = {
   username: string;
@@ -17,6 +19,10 @@ export const User = () => {
     useSelector((state: any) => state.userScreen);
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(changeScreen("user"));
+  }, []);
 
   const tabStyle: string = "m-2 p-2 hover:border-b-[0.5rem] cursor-pointer";
   const selectedTabStyle: string =
