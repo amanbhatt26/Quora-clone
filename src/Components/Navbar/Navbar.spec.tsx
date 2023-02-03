@@ -1,6 +1,5 @@
-import { Navbar } from "./Navbar"
+import { Navbar } from "./Navbar";
 
-describe("Navbar", ()=>{
-
-    it.todo("renders successfully")
-})
+describe("Navbar", () => {
+  it.todo("renders successfully");
+});
