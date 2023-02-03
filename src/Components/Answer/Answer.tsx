@@ -126,7 +126,7 @@ export const Answer = ({
       {expanded === true ? (
         comments.map(({ userID, text }) => {
           return (
-            <div className="comment bg-white text-[0.8rem] mx-[2rem] text-slate-600 w-[80%] border-t-4 p-2 flex flex-col items-start">
+            <div className="comment bg-white text-[0.8rem] mx-[2rem] text-slate-600 w-[80%] my-2 p-2 flex flex-col items-start border-l-4 border-slate-400">
               <div className="flex flex-row items-center justify-start">
                 <img
                   src="https://lumiere-a.akamaihd.net/v1/images/spiderman-characterthumbnail-spiderman_3a64e546.jpeg?region=0%2C0%2C300%2C300"
