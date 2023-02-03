@@ -1,1 +1,1 @@
-export * from "./TopUsers"
+export * from "./TopUsers";

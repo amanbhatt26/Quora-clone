@@ -1,28 +1,22 @@
-import { Link } from "react-router-dom";
-
-export type AnswerProps = {
+export type WithoutQuestionProps = {
   votes: number;
-  question: string;
   answer: string;
   username: string;
   postedAt: string;
   comments: string;
-  questionID: string;
 };
 
-export const Answer = ({
+export const WithoutQuestion = ({
   votes,
-  question,
   answer,
   username,
   postedAt,
   comments,
-  questionID,
-}: AnswerProps) => {
+}: WithoutQuestionProps) => {
   return (
-    <div className="h-auto bg-white shadow-lg m-[2rem]  flex flex-row">
+    <div className="h-auto bg-white shadow-lg m-[2rem] flex flex-row">
       {/* upvote component */}
-      <div className="w-[10%]   flex flex-col items-center justify-top p-3">
+      <div className="w-[10%] flex flex-col items-center justify-top p-3">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -60,13 +54,9 @@ export const Answer = ({
         </svg>
       </div>
       {/* description component */}
-      <div className="w-[90%] p-[1.5rem] flex flex-col justify-top items-center">
+      <div className="w-[90%]  p-[1.5rem] flex flex-col justify-top items-center">
         {/* Text elements */}
         <div className="border-b-2 pb-8">
-          {/* Question */}
-          <Link to={`/questions/${questionID}`}>
-            <p className="text-[1rem] mb-2">{question}</p>
-          </Link>
           {/* Answer */}
           <p className="text-[0.8rem] text-slate-600">{answer}</p>
         </div>
