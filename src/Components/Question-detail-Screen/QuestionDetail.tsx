@@ -1,57 +1,57 @@
-import { WithoutQuestion } from "../Answer";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { changeScreen } from "../../Features/Navigation/NavSlice";
+import { Answer, AnswerProps } from "../Answer";
 import { Question } from "../Question/Question";
 
 export const QuestionDetail = () => {
+  const { question, answers } = useSelector(
+    (state: any) => state.questionDetail
+  );
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(changeScreen("questionDetail"));
+  }, []);
+
   return (
     <>
       <div className="scrollable-list h-full w-[100vw] md:w-[70vw] ml-10">
         {/* Question */}
 
         <Question
-          text="Laborum laborum quis irure sunt ipsum consectetur nulla culpa pariatur et.?"
-          username="Aman"
-          postedAt="2hr ago"
-          answers="60+"
-          questionID="questionID"
+          text={question.text}
+          username={question.username}
+          postedAt={question.postedAt}
+          answers={question.answers}
+          questionID={question.questionID}
         />
         <div className="h-1 w-auto shadow-md mx-[5rem]"></div>
         {/* Answers for the question */}
-
-        <WithoutQuestion
-          votes={50}
-          postedAt="2hr ago"
-          comments="60+"
-          username="Aman"
-          answer="Proident consectetur magna mollit mollit anim reprehenderit labore culpa enim fugiat ex aliquip ipsum eiusmod. Commodo proident et occaecat tempor non ullamco consequat. Do cupidatat culpa nostrud id nulla. Pariatur adipisicing qui sunt duis ex ut pariatur ex cupidatat. Sit nostrud minim reprehenderit adipisicing culpa laboris anim fugiat exercitation aute sit Lorem sint."
-        />
-        <WithoutQuestion
-          votes={50}
-          postedAt="2hr ago"
-          comments="60+"
-          username="Aman"
-          answer="Proident consectetur magna mollit mollit anim reprehenderit labore culpa enim fugiat ex aliquip ipsum eiusmod. Commodo proident et occaecat tempor non ullamco consequat. Do cupidatat culpa nostrud id nulla. Pariatur adipisicing qui sunt duis ex ut pariatur ex cupidatat. Sit nostrud minim reprehenderit adipisicing culpa laboris anim fugiat exercitation aute sit Lorem sint."
-        />
-        <WithoutQuestion
-          votes={50}
-          postedAt="2hr ago"
-          comments="60+"
-          username="Aman"
-          answer="Proident consectetur magna mollit mollit anim reprehenderit labore culpa enim fugiat ex aliquip ipsum eiusmod. Commodo proident et occaecat tempor non ullamco consequat. Do cupidatat culpa nostrud id nulla. Pariatur adipisicing qui sunt duis ex ut pariatur ex cupidatat. Sit nostrud minim reprehenderit adipisicing culpa laboris anim fugiat exercitation aute sit Lorem sint."
-        />
-        <WithoutQuestion
-          votes={50}
-          postedAt="2hr ago"
-          comments="60+"
-          username="Aman"
-          answer="Proident consectetur magna mollit mollit anim reprehenderit labore culpa enim fugiat ex aliquip ipsum eiusmod. Commodo proident et occaecat tempor non ullamco consequat. Do cupidatat culpa nostrud id nulla. Pariatur adipisicing qui sunt duis ex ut pariatur ex cupidatat. Sit nostrud minim reprehenderit adipisicing culpa laboris anim fugiat exercitation aute sit Lorem sint."
-        />
-        <WithoutQuestion
-          votes={50}
-          postedAt="2hr ago"
-          comments="60+"
-          username="Aman"
-          answer="Proident consectetur magna mollit mollit anim reprehenderit labore culpa enim fugiat ex aliquip ipsum eiusmod. Commodo proident et occaecat tempor non ullamco consequat. Do cupidatat culpa nostrud id nulla. Pariatur adipisicing qui sunt duis ex ut pariatur ex cupidatat. Sit nostrud minim reprehenderit adipisicing culpa laboris anim fugiat exercitation aute sit Lorem sint."
-        />
+        {answers.map(
+          ({
+            votes,
+            postedAt,
+            comments,
+            username,
+            answer,
+            questionID,
+            question,
+          }: AnswerProps) => {
+            return (
+              <Answer
+                votes={votes}
+                postedAt={postedAt}
+                comments={comments}
+                username={username}
+                answer={answer}
+                questionID={questionID}
+                question={question}
+              />
+            );
+          }
+        )}
       </div>
       {/* Add question button */}
 
