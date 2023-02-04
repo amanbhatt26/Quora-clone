@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { AnswerProps } from "../../Components/Answer";
 import { QuestionProps } from "../../Components/Question";
 
 export type QuestionList = QuestionProps[];
@@ -12,21 +11,28 @@ const initialState: QuestionScreenStateProps = {
     {
       text: "Ea dolor et duis occaecat ipsum amet proident culpa anim qui officia.",
       username: "aman",
-      postedAt: "2 hr ago",
+      postedAt: 1641006306,
       answers: "60+",
       questionID: "randomID",
     },
     {
       text: "Ea dolor et duis occaecat ipsum amet proident culpa anim qui officia.",
       username: "aman",
-      postedAt: "2 hr ago",
+      postedAt: 1641006306,
       answers: "60+",
       questionID: "randomID",
     },
     {
       text: "Ea dolor et duis occaecat ipsum amet proident culpa anim qui officia.",
       username: "aman",
-      postedAt: "2 hr ago",
+      postedAt: 1641006306,
+      answers: "60+",
+      questionID: "randomID",
+    },
+    {
+      text: "Ea dolor et duis occaecat ipsum amet proident culpa anim qui officia.",
+      username: "aman",
+      postedAt: 1641006306,
       answers: "60+",
       questionID: "randomID",
     },

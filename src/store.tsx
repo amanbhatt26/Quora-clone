@@ -4,6 +4,7 @@ import QuestionScreenReducer from "./Features/Questions-Screen/QuestionsSlice";
 import UserScreenReducer from "./Features/User-Screen/UserSlice";
 import QuestionDetailReducer from "./Features/Question-Detail/QuestionDetailSlice";
 import NavigationReducer from "./Features/Navigation/NavSlice";
+import LoginModalReducer from "./Features/LoginModal/LoginModalSlice";
 
 export const store = configureStore({
   reducer: {
@@ -12,5 +13,6 @@ export const store = configureStore({
     userScreen: UserScreenReducer,
     questionDetail: QuestionDetailReducer,
     navigation: NavigationReducer,
+    loginModal: LoginModalReducer,
   },
 });

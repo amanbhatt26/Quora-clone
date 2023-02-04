@@ -4,7 +4,7 @@ import { UserProps } from "../../Components/User-Screen";
 const initialState: UserProps = {
   username: "Aman Bhatt",
   profession: "Web Developer",
-  joinedAt: "2 days ago",
+  joinedAt: 1672542306,
   answers: [
     {
       votes: 50,
@@ -13,7 +13,7 @@ const initialState: UserProps = {
       answer:
         "Esse est dolor in sit aute cillum aliquip dolore dolor est duis elit eiusmod consequat. Culpa duis nostrud deserunt dolor ipsum est officia incididunt. Adipisicing nisi consectetur sint veniam.",
       username: "aman",
-      postedAt: "2days ago",
+      postedAt: 1672542306,
       comments: [{ userID: "suparv", text: "good answer" }],
       questionID: "randomID",
     },
@@ -22,21 +22,28 @@ const initialState: UserProps = {
     {
       text: "Ea dolor et duis occaecat ipsum amet proident culpa anim qui officia.",
       username: "aman",
-      postedAt: "2 hr ago",
+      postedAt: 1641006306,
       answers: "60+",
       questionID: "randomID",
     },
     {
       text: "Ea dolor et duis occaecat ipsum amet proident culpa anim qui officia.",
       username: "aman",
-      postedAt: "2 hr ago",
+      postedAt: 1641006306,
       answers: "60+",
       questionID: "randomID",
     },
     {
       text: "Ea dolor et duis occaecat ipsum amet proident culpa anim qui officia.",
       username: "aman",
-      postedAt: "2 hr ago",
+      postedAt: 1641006306,
+      answers: "60+",
+      questionID: "randomID",
+    },
+    {
+      text: "Ea dolor et duis occaecat ipsum amet proident culpa anim qui officia.",
+      username: "aman",
+      postedAt: 1641006306,
       answers: "60+",
       questionID: "randomID",
     },

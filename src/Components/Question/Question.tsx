@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
+import timeago from "../../Utils/timeago";
 
 export type QuestionProps = {
   text: string;
   username: string;
-  postedAt: string;
+  postedAt: number;
   answers: string;
   questionID: string;
 };
@@ -38,7 +39,7 @@ export const Question = ({
 
         <p className="ml-2 text-[0.75rem] justify-self-end text-[#666666]">
           {" "}
-          {postedAt}
+          {timeago(postedAt * 1000)}
         </p>
         {/* number of comments */}
         <div className="ml-auto flex flex-row items-center text-[0.75rem] p-[1rem]">

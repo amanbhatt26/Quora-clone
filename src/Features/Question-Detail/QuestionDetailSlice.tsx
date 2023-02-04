@@ -11,7 +11,7 @@ const initialState: QuestionDetailProps = {
   question: {
     text: "Ea dolor et duis occaecat ipsum amet proident culpa anim qui officia.",
     username: "aman",
-    postedAt: "2 hr ago",
+    postedAt: 1641006306,
     answers: "60+",
     questionID: "randomID",
   },
@@ -21,7 +21,7 @@ const initialState: QuestionDetailProps = {
       answer:
         "Et commodo et non magna aliqua sit culpa aliqua. Tempor fugiat ad magna cupidatat anim excepteur sit eiusmod. Amet cillum cillum ex esse adipisicing exercitation proident minim aliqua exercitation. Proident voluptate ea excepteur magna.",
       username: "aman",
-      postedAt: "2hr ago",
+      postedAt: 1672542306,
       comments: [{ userID: "suparv", text: "good answer" }],
     },
 
@@ -30,7 +30,7 @@ const initialState: QuestionDetailProps = {
       answer:
         "Et commodo et non magna aliqua sit culpa aliqua. Tempor fugiat ad magna cupidatat anim excepteur sit eiusmod. Amet cillum cillum ex esse adipisicing exercitation proident minim aliqua exercitation. Proident voluptate ea excepteur magna.",
       username: "aman",
-      postedAt: "2hr ago",
+      postedAt: 1672542306,
       comments: [{ userID: "suparv", text: "good answer" }],
       questionID: "randomID",
     },

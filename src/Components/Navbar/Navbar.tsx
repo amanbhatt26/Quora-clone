@@ -1,8 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, unstable_HistoryRouter } from "react-router-dom";
 import { HomeIconOutline, HomeIconSolid, QuestionIconOutline } from "../Icons";
 import { changeScreen } from "../../Features/Navigation/NavSlice";
 import { link } from "fs";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../../Utils/firebase";
+import { openLoginModal } from "../../Features/LoginModal/LoginModalSlice";
+import { useNavigate } from "react-router-dom";
 
 export const Navbar = () => {
   const { tab } = useSelector((state: any) => state.navigation);
@@ -12,10 +16,18 @@ export const Navbar = () => {
   const selectedLinkStyle =
     "mr-5  p-1  hover:border-b-[0.5rem] border-b-[0.5rem]";
 
+  const [user, loading] = useAuthState(auth);
+
+  let imgSrc =
+    "https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png?20150327203541";
+  if (user) imgSrc = user.photoURL as string;
+
+  const navigate = useNavigate();
+
   return (
     <div
       className="fixed w-[100vw] h-[5rem] shadow-md 
-    flex flex-row items-center p-[1rem] bg-[#FFFFFF] justify-start"
+    flex flex-row items-center p-[1rem] bg-[#FFFFFF] justify-start z-[50]"
     >
       <Link
         to="/"
@@ -55,19 +67,22 @@ export const Navbar = () => {
       </div>
 
       {/* todo: use the userid from the state instead of hardcoding */}
-      <Link
-        to="/user/aman"
+      <div
         onClick={() => {
-          dispatch(changeScreen("user"));
+          if (!user) {
+            dispatch(openLoginModal());
+          } else {
+            navigate("/user");
+          }
         }}
       >
         <div className={tab === "user" ? selectedLinkStyle : linkStyle}>
           <img
-            src="https://lumiere-a.akamaihd.net/v1/images/spiderman-characterthumbnail-spiderman_3a64e546.jpeg?region=0%2C0%2C300%2C300"
-            className="h-[2rem] w-[2rem] rounded-[50%]"
+            src={imgSrc}
+            className="h-[2rem] w-[2rem] rounded-[50%] cursor-pointer"
           />
         </div>
-      </Link>
+      </div>
     </div>
   );
 };

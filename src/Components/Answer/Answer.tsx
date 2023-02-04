@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import timeago from "../../Utils/timeago";
 
 export type AnswerProps = {
   votes: number;
   question?: string | null | undefined;
   answer: string;
   username: string;
-  postedAt: string;
+  postedAt: number;
   comments: { userID: string; text: string }[];
   questionID?: string | null | undefined;
 };
@@ -92,7 +93,7 @@ export const Answer = ({
 
             <p className="right text-[0.75rem] justify-self-end text-[#666666]">
               {" "}
-              {postedAt}
+              {timeago(postedAt * 1000)}
             </p>
             {/* number of comments */}
             <div
