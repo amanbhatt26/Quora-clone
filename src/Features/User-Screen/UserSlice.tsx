@@ -88,7 +88,8 @@ const UserSlice = createSlice({
         answers = [
           ...answers,
           {
-            votes: likes.length - dislikes.length,
+            likes: likes,
+            dislikes: dislikes,
             answer: text,
             username: userId,
             postedAt: dateTime,

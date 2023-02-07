@@ -53,7 +53,8 @@ export const QuestionDetail = () => {
         {answers.length > 0 ? (
           answers.map(
             ({
-              votes,
+              likes,
+              dislikes,
               postedAt,
               comments,
               username,
@@ -64,7 +65,8 @@ export const QuestionDetail = () => {
             }: AnswerProps) => {
               return (
                 <Answer
-                  votes={votes}
+                  likes={likes}
+                  dislikes={dislikes}
                   postedAt={postedAt}
                   comments={comments}
                   username={username}

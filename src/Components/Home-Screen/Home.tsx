@@ -41,7 +41,8 @@ export const Home = () => {
         {/* Answer Components */}
         {answers.map(
           ({
-            votes,
+            likes,
+            dislikes,
             question,
             answer,
             username,
@@ -53,7 +54,8 @@ export const Home = () => {
             return (
               <Answer
                 key={username}
-                votes={votes}
+                likes={likes}
+                dislikes={dislikes}
                 question={question}
                 answer={answer}
                 username={username}

@@ -50,7 +50,8 @@ const QuestionDetailSlice = createSlice({
     },
     updateAnswers: (state, action) => {
       let answer: AnswerProps = {
-        votes: 0,
+        likes: [],
+        dislikes: [],
         answer: action.payload.text,
         username: action.payload.user,
         postedAt: Date.now(),
@@ -95,7 +96,8 @@ const QuestionDetailSlice = createSlice({
         answers = [
           ...answers,
           {
-            votes: likes.length - dislikes.length,
+            likes: likes,
+            dislikes: dislikes,
             answer: text,
             username: userId,
             postedAt: dateTime,

@@ -34,9 +34,11 @@ export const QuestionScreen = () => {
   if (isQuestionsLoading) return <div>Loading...</div>;
   return (
     <>
-      <div className="scrollable-list h-full w-[100vw] md:w-[70vw] ml-10">
+      <div className="scrollable-list h-full w-[70vw] ml-10 flex flex-col">
         {/* Question Components */}
-
+        <div className="text-[.9rem] text-slate-600 self-center mt-10">
+          Questions {questions.length}
+        </div>
         {questions.map(
           ({
             text,

@@ -103,7 +103,8 @@ export const User = () => {
             <div className="scrollable-list h-full w-[50vw]">
               {answers.map(
                 ({
-                  votes,
+                  likes,
+                  dislikes,
                   answer,
                   username,
                   postedAt,
@@ -113,7 +114,8 @@ export const User = () => {
                 }) => {
                   return (
                     <Answer
-                      votes={votes}
+                      likes={likes}
+                      dislikes={dislikes}
                       answer={answer}
                       username={username}
                       postedAt={postedAt}

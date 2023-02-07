@@ -1,13 +1,17 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { auth } from "../../Utils/firebase";
 import { postComments } from "../../Utils/postComment";
 import timeago from "../../Utils/timeago";
+import { vote } from "../../Utils/vote";
+import { UpvoteOutline, UpvoteSolid } from "../Icons";
+import { MdChangeHistory } from "react-icons/md";
 
 export type AnswerProps = {
-  votes: number;
+  likes: string[];
+  dislikes: string[];
   question?: string | null | undefined;
   answer: string;
   username: string;
@@ -23,7 +27,8 @@ export type PostCommentProps = {
 };
 
 export const Answer = ({
-  votes,
+  likes,
+  dislikes,
   question,
   answer,
   username,
@@ -33,49 +38,197 @@ export const Answer = ({
   answerID,
 }: AnswerProps) => {
   const [user, loading] = useAuthState(auth);
+
   const [expanded, setExpanded] = useState(false);
   const [commentsList, setComments] = useState(comments);
+  const [hasLiked, setHasLiked] = useState(
+    likes.includes(user?.displayName as string)
+  );
+  const [hasdisLiked, setHasDisliked] = useState(
+    dislikes.includes(user?.displayName as string)
+  );
+
+  const [upvotes, setUpvotes] = useState(likes);
+  const [downVotes, setDownvotes] = useState(dislikes);
+  useEffect(() => {
+    setHasLiked(likes.includes(user?.displayName as string));
+    setHasDisliked(dislikes.includes(user?.displayName as string));
+  }, [user]);
+  const handleUpvote = async () => {
+    if (!user) {
+      alert("Login to vote");
+      return;
+    }
+    let response = null;
+    if (hasLiked) {
+      response = await vote({
+        like: false,
+        dislike: false,
+        userId: user.displayName as string,
+        answerId: answerID,
+      });
+
+      if (!response.success) {
+        alert("Server error");
+        return;
+      }
+
+      setHasLiked(false);
+      setUpvotes((prev) => {
+        const newarr = prev.filter((item) => {
+          if (item === user.displayName) return false;
+          return true;
+        });
+
+        return newarr;
+      });
+
+      return;
+    } else {
+      response = await vote({
+        like: true,
+        dislike: false,
+        userId: user.displayName as string,
+        answerId: answerID,
+      });
+    }
+
+    if (!response.success) {
+      alert("Cannot upvote due to server error");
+      return;
+    }
+
+    setHasLiked(true);
+    setHasDisliked(false);
+
+    setDownvotes((prev) => {
+      const newarr = prev.filter((item) => {
+        if (item === user.displayName) return false;
+        return true;
+      });
+
+      return newarr;
+    });
+    setUpvotes((prev) => {
+      const newarr = prev.filter((item) => {
+        if (item === user.displayName) return false;
+        return true;
+      });
+
+      return [...newarr, user.displayName as string];
+    });
+  };
+
+  const handleDownvote = async () => {
+    if (!user) {
+      alert("Login to vote");
+      return;
+    }
+
+    let response = null;
+    if (hasdisLiked) {
+      response = await vote({
+        like: false,
+        dislike: false,
+        userId: user.displayName as string,
+        answerId: answerID,
+      });
+
+      if (!response.success) {
+        alert("Server error");
+        return;
+      }
+
+      setHasDisliked(false);
+      setDownvotes((prev) => {
+        const newarr = prev.filter((item) => {
+          if (item === user.displayName) return false;
+          return true;
+        });
+
+        return newarr;
+      });
+
+      return;
+    } else {
+      response = await vote({
+        like: false,
+        dislike: true,
+        userId: user.displayName as string,
+        answerId: answerID,
+      });
+    }
+
+    if (!response.success) {
+      alert("Cannot downVote due to server error");
+      return;
+    }
+    setHasDisliked(true);
+    setHasLiked(false);
+
+    setUpvotes((prev) => {
+      const newarr = prev.filter((item) => {
+        if (item === user.displayName) return false;
+        return true;
+      });
+
+      return newarr;
+    });
+
+    setDownvotes((prev) => {
+      const newarr = prev.filter((item) => {
+        if (item === user.displayName) return false;
+        return true;
+      });
+
+      return [...newarr, user.displayName as string];
+    });
+  };
+  const voteStyle = "w-4 h-4 cursor-pointer rotate-[-90deg]";
+  const interactedStyle = "w-4 h-4 rotate-[-90deg] cursor-pointer";
+
+  const downVoteStyle = "w-4 h-4 cursor-pointer rotate-[90deg]";
+  const downVoteInteractedStyle = "w-4 h-4 rotate-[90deg] cursor-pointer";
+
+  const upVoteFill = "#362FD9";
+  const downVoteFill = "#FF0000";
 
   return (
     <div className="h-auto w-auto flex flex-col items-center justify-center  m-[2rem] shadow-lg ">
       <div className="h-auto w-full bg-white flex flex-row">
         {/* upvote component */}
         <div className="w-[10%] flex flex-col items-center justify-top p-3">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="w-6 h-6"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M4.5 15.75l7.5-7.5 7.5 7.5"
-              fill="#D6E4E5"
-              strokeWidth="0"
+          {!hasLiked ? (
+            <UpvoteOutline
+              className={hasLiked ? interactedStyle : voteStyle}
+              stroke={"#6096B4"}
+              onClick={() => handleUpvote()}
             />
-          </svg>
-
-          <p className="text-[0.90rem] text-slate-600">{votes}</p>
-
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="w-6 h-6"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-              fill="#EB6440"
-              strokeWidth="0"
+          ) : (
+            <UpvoteSolid
+              className={hasLiked ? interactedStyle : voteStyle}
+              stroke={"#6096B4"}
+              onClick={() => handleUpvote()}
             />
-          </svg>
+          )}
+
+          <p className="text-[0.90rem] text-slate-600">
+            {upvotes.length - downVotes.length}
+          </p>
+
+          {!hasdisLiked ? (
+            <UpvoteOutline
+              className={hasdisLiked ? downVoteInteractedStyle : downVoteStyle}
+              stroke={"#F55050"}
+              onClick={() => handleDownvote()}
+            />
+          ) : (
+            <UpvoteSolid
+              className={hasdisLiked ? downVoteInteractedStyle : downVoteStyle}
+              stroke={"#F55050"}
+              onClick={() => handleDownvote()}
+            />
+          )}
         </div>
         {/* description component */}
         <div className="w-[90%] p-[1.5rem] flex-1 flex flex-col justify-top items-center">
