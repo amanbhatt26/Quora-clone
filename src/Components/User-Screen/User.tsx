@@ -1,7 +1,11 @@
 import { useDispatch, useSelector } from "react-redux";
 import { Answer, AnswerProps } from "../Answer";
 import { Question, QuestionProps } from "../Question";
-import { changeTab } from "../../Features/User-Screen/UserSlice";
+import {
+  changeTab,
+  getAnswersByUserId,
+  getQuestionsByUserId,
+} from "../../Features/User-Screen/UserSlice";
 import { useEffect } from "react";
 import { changeScreen } from "../../Features/Navigation/NavSlice";
 import { auth } from "../../Utils/firebase";
@@ -10,6 +14,8 @@ import { SignOutOutline } from "../Icons";
 import { Logout } from "../../Utils/login";
 import { useNavigate } from "react-router-dom";
 import timeago from "../../Utils/timeago";
+import { getAnswersByQuestionId } from "../../Features/Question-Detail/QuestionDetailSlice";
+import { AppDispatch } from "../../store";
 
 export type UserProps = {
   username: string;
@@ -23,18 +29,22 @@ export type UserProps = {
 export const User = () => {
   const { username, profession, joinedAt, answers, questions, tab }: UserProps =
     useSelector((state: any) => state.userScreen);
-
-  const dispatch = useDispatch();
+  const [user, loading] = useAuthState(auth);
+  const dispatch = useDispatch<AppDispatch>();
   dispatch(changeScreen("user"));
   useEffect(() => {
     dispatch(changeScreen("user"));
   }, []);
 
+  useEffect(() => {
+    dispatch(getAnswersByUserId(user?.displayName));
+    dispatch(getQuestionsByUserId(user?.displayName));
+  }, [user]);
+
   const tabStyle: string = "m-2 p-2 hover:border-b-[0.5rem] cursor-pointer";
   const selectedTabStyle: string =
     "m-2 p-2 hover:border-b-[0.5rem] border-b-[0.5rem] cursor-pointer";
 
-  const [user, loading] = useAuthState(auth);
   const navigate = useNavigate();
 
   return (
@@ -93,23 +103,25 @@ export const User = () => {
             <div className="scrollable-list h-full w-[50vw]">
               {answers.map(
                 ({
-                  votes,
-                  question,
+                  likes,
+                  dislikes,
                   answer,
                   username,
                   postedAt,
                   comments,
                   questionID,
+                  answerID,
                 }) => {
                   return (
                     <Answer
-                      votes={votes}
-                      question={question}
+                      likes={likes}
+                      dislikes={dislikes}
                       answer={answer}
                       username={username}
                       postedAt={postedAt}
                       comments={comments}
                       questionID={questionID}
+                      answerID={answerID}
                     />
                   );
                 }
