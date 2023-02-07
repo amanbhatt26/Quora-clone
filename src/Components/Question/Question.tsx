@@ -5,7 +5,7 @@ export type QuestionProps = {
   text: string;
   username: string;
   postedAt: number;
-  answers: string;
+  answers: string[];
   questionID: string;
 };
 
@@ -39,7 +39,7 @@ export const Question = ({
 
         <p className="ml-2 text-[0.75rem] justify-self-end text-[#666666]">
           {" "}
-          {timeago(postedAt * 1000)}
+          {timeago(postedAt)}
         </p>
         {/* number of comments */}
         <div className="ml-auto flex flex-row items-center text-[0.75rem] p-[1rem]">
@@ -58,7 +58,7 @@ export const Question = ({
             />
           </svg>
 
-          <p className=" text-[.75rem] text-[#666666] ">{answers}</p>
+          <p className=" text-[.75rem] text-[#666666] ">{answers.length}</p>
         </div>
       </div>
     </div>

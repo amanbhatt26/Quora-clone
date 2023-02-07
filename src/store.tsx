@@ -5,6 +5,8 @@ import UserScreenReducer from "./Features/User-Screen/UserSlice";
 import QuestionDetailReducer from "./Features/Question-Detail/QuestionDetailSlice";
 import NavigationReducer from "./Features/Navigation/NavSlice";
 import LoginModalReducer from "./Features/LoginModal/LoginModalSlice";
+import QnaModalReducer from "./Features/QnaModal/QnaModalSlice";
+import AnswerModalReducer from "./Features/AnswerModal/AnswerModalSlice";
 
 export const store = configureStore({
   reducer: {
@@ -14,5 +16,10 @@ export const store = configureStore({
     questionDetail: QuestionDetailReducer,
     navigation: NavigationReducer,
     loginModal: LoginModalReducer,
+    qnaModal: QnaModalReducer,
+    answerModal: AnswerModalReducer,
   },
 });
+
+export type AppDispatch = typeof store.dispatch;
+export type RootState = ReturnType<typeof store.getState>;
